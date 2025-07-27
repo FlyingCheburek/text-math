@@ -15,10 +15,13 @@ namespace TextMath {
         Decimal(Number& number);
 
         Decimal& operator=(const Number& other) noexcept;
-        Decimal& operator=(const std::string& number);  
+        Decimal& operator=(const std::string& number);
+        
+        std::pair<std::string, std::string> split();
 
     private:
         inline static void to_decimal(std::string& integer);
+        void decimal_trim_zeroes();
     };
 }
 

@@ -17,6 +17,7 @@ Decimal::Decimal(std::string number) {
         default:
             throw std::invalid_argument("Invalid number format for Decimal initialization.");
     }
+    decimal_trim_zeroes();
 }
 
 Decimal::Decimal(const float number) {
@@ -63,9 +64,22 @@ Decimal& Decimal::operator=(const std::string &number){
         default:
             throw std::invalid_argument("Invalid format assigned to object of type TextMath::Decimal");
     }
+    decimal_trim_zeroes();
     return *this;
 }
 
 inline void Decimal::to_decimal(std::string &integer){
     integer += ".0";
+}
+
+void TextMath::Decimal::decimal_trim_zeroes(){
+    auto parts = split();
+    trim_left_zeroes(parts.first);
+    trim_right_zeroes(parts.second);
+    content = parts.first + "." + parts.second;
+}
+
+std::pair<std::string, std::string> Decimal::split(){
+    size_t point_idx = content.find('.');
+    return std::make_pair<std::string, std::string>(content.substr(0, point_idx), content.substr(point_idx+1));
 }

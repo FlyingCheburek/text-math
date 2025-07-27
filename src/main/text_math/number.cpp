@@ -22,7 +22,7 @@ Number::Type Number::get_type() const noexcept{
     return type;
 }
 
-void TextMath::trim_zeroes(std::string &integer) noexcept {
+void TextMath::trim_left_zeroes(std::string &integer) noexcept {
     bool negative = integer.front() == '-';
     if (negative)
         integer.erase(0,1);
@@ -31,5 +31,17 @@ void TextMath::trim_zeroes(std::string &integer) noexcept {
         integer = "0";
     else if (trim_idx != integer.length() - 1)
         integer = integer.substr(trim_idx);
+        if (negative) integer = "-" + integer;
+}
+
+void TextMath::trim_right_zeroes(std::string &integer) noexcept {
+    bool negative = integer.front() == '-';
+    if (negative)
+        integer.erase(0,1);
+    size_t trim_idx = integer.find_last_not_of('0');
+    if (trim_idx == std::string::npos)
+        integer = "0";
+    else
+        integer = integer.substr(0,trim_idx+1);
         if (negative) integer = "-" + integer;
 }

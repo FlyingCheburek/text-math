@@ -4,8 +4,8 @@
 using namespace TextMath;
 
 int main() {
-    Integer a("-010000"), b(a);
-    
-    std::cout << b.get();
+    Decimal a("-00010.0000001"), b;
+    b = "99.9110000000";
+    std::cout << b.get() << std::endl;
     return 0;
 }

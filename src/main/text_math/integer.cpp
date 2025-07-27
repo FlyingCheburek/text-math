@@ -17,7 +17,7 @@ Integer::Integer(std::string number) : Number() {
         default:
             throw std::invalid_argument("Invalid number format for Integer initialization.");
     }
-    trim_zeroes(content);
+    trim_left_zeroes(content);
 }
 
 Integer::Integer(const long long number) noexcept : Number() {
@@ -59,7 +59,7 @@ Integer& Integer::operator=(const std::string &number){
         default:
             throw std::invalid_argument("Invalid format assigned to object of type TextMath::Integer");
     }
-    trim_zeroes(content);
+    trim_left_zeroes(content);
     return *this;
 }
 
