@@ -3,10 +3,10 @@
 #include "number.hpp"
 
 namespace TextMath {
-    class Integer : public Number {
+    class Integer final : public Number {
     public:
         Integer() noexcept;
-        Integer(const char* number);
+        Integer(std::string number);
         Integer(const long long number) noexcept;
     };
 }

@@ -4,13 +4,15 @@ using namespace TextMath;
 
 Integer::Integer() noexcept : Number() { content = "0"; }
 
-Integer::Integer(const char* number) : Number() {
+Integer::Integer(std::string number) : Number() {
     switch(get_type(number)) {
         case INTEGER:
             content = number;
             break;
         case DECIMAL:
-            throw std::invalid_argument("Cannot initialize Integer with a decimal number.");
+            number.erase(number.find('.'));
+            content = number;
+            break;
         default:
             throw std::invalid_argument("Invalid number format for Integer initialization.");
     }
