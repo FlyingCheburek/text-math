@@ -1,9 +1,13 @@
 #ifndef DECIMAL_HPP
 #define DECIMAL_HPP
 #include "number.hpp"
+#include "integer.hpp"
 
 namespace TextMath {
     class Decimal final : public Number {
+    private:
+        Integer precision = 2;
+
     public:
         Decimal() noexcept;
         Decimal(std::string number);
