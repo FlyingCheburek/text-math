@@ -9,7 +9,10 @@ namespace TextMath {
         Decimal(std::string number);
         Decimal(const float number);
         Decimal(const double number);
-        Decimal(Number* number);
+        Decimal(Number& number);
+
+        Decimal& operator=(const Number& other) noexcept;
+        Decimal& operator=(const std::string& number);  
 
     private:
         inline static void to_decimal(std::string& integer);

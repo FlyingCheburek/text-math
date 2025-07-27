@@ -5,11 +5,11 @@ using namespace TextMath;
 
 int main() {
     Integer a("-999");
-    Decimal b(&a);
+    Decimal b("100.06");
 
-    Decimal c("123.05");
-    Integer d(&c);
+    a = "111.91231";
+    b = "891.1238123923";
 
-    std::cout << d.get() << "\n";
+    std::cout << b.get() << "\n";
     return 0;
 }
