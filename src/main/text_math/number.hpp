@@ -21,6 +21,7 @@ namespace TextMath {
         Type get_type() const noexcept; 
         static Type find_type(const std::string text) noexcept;
     };
+    void trim_zeroes(std::string& integer) noexcept;
 }
 
 #endif
