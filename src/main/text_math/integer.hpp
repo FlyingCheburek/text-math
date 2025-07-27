@@ -8,6 +8,10 @@ namespace TextMath {
         Integer() noexcept;
         Integer(std::string number);
         Integer(const long long number) noexcept;
+        Integer(Number* number);
+
+    private:
+        inline static void to_integer(std::string& decimal);
     };
 }
 

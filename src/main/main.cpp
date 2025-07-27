@@ -4,9 +4,12 @@
 using namespace TextMath;
 
 int main() {
-    Integer a("782348723487.0982321");
-    Decimal x("9.56");
-    Number b(a), c(x);
-    std::cout << b.get() << " " << c.get() << std::endl;
+    Integer a("-999");
+    Decimal b(&a);
+
+    Decimal c("123.05");
+    Integer d(&c);
+
+    std::cout << d.get() << "\n";
     return 0;
 }

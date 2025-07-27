@@ -14,10 +14,12 @@ namespace TextMath {
 
     protected:
         std::string content;
+        Type type = INVALID;
 
     public:
-        std::string get() noexcept;
-        static Type get_type(const std::string text) noexcept;
+        std::string get() const noexcept;
+        Type get_type() const noexcept; 
+        static Type find_type(const std::string text) noexcept;
     };
 }
 

@@ -3,7 +3,7 @@
 
 using namespace TextMath;
 
-Number::Type Number::get_type(const std::string text) noexcept {
+Number::Type Number::find_type(const std::string text) noexcept {
     if (std::regex_match(text, std::regex("^-?\\d+$")))
         return INTEGER;
 
@@ -13,6 +13,10 @@ Number::Type Number::get_type(const std::string text) noexcept {
     return INVALID;
 }
 
-std::string Number::get() noexcept {
+std::string Number::get() const noexcept {
     return content;
+}
+
+Number::Type Number::get_type() const noexcept{
+    return type;
 }
