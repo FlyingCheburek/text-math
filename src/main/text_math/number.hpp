@@ -1,6 +1,7 @@
 #ifndef NUMBER_HPP
 #define NUMBER_HPP
 #include <iostream>
+#include <stdexcept>
 
 namespace TextMath {
     class Number {
@@ -10,11 +11,12 @@ namespace TextMath {
             DECIMAL,
             INVALID
         }; 
-          
+
     protected:
         std::string content;
 
     public:
+        std::string get() noexcept;
         static Type get_type(const std::string text) noexcept;
     };
 }

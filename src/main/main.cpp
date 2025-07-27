@@ -1,7 +1,9 @@
-#include "text_math/number.hpp"
+#include "text_math/integer.hpp"
 using namespace TextMath;
 
 int main() {
-    std::cout << Number::get_type("1009756789") << std::endl;
+    Integer a(-999);
+    Number b(a);
+    std::cout << b.get() << std::endl;
     return 0;
 }

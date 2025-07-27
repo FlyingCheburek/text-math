@@ -12,3 +12,7 @@ Number::Type Number::get_type(const std::string text) noexcept {
     
     return INVALID;
 }
+
+std::string Number::get() noexcept {
+    return content;
+}
