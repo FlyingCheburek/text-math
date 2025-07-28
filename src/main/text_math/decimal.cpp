@@ -83,3 +83,13 @@ std::pair<std::string, std::string> Decimal::split(){
     size_t point_idx = content.find('.');
     return std::make_pair<std::string, std::string>(content.substr(0, point_idx), content.substr(point_idx+1));
 }
+
+void TextMath::Decimal::set_precision(const size_t precision){
+    if (precision < 1)
+        throw std::invalid_argument("TextMath::Decimal::precision cannot be less than 0.");
+    this->precision = precision;
+}
+
+size_t Decimal::get_precision() const noexcept {
+    return precision;
+}

@@ -18,6 +18,8 @@ namespace TextMath {
         Decimal& operator=(const std::string& number);
         
         std::pair<std::string, std::string> split();
+        void set_precision(const size_t precision);
+        size_t get_precision() const noexcept;
 
     private:
         inline static void to_decimal(std::string& integer);
