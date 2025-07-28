@@ -27,11 +27,14 @@ void Number::trim_left_zeroes(std::string &integer) noexcept {
     if (negative)
         integer.erase(0,1);
     size_t trim_idx = integer.find_first_not_of('0');
-    if (trim_idx == std::string::npos)
+    if (trim_idx == std::string::npos) {
         integer = "0";
+        return;
+    }
     else if (trim_idx != integer.length() - 1)
         integer = integer.substr(trim_idx);
-        if (negative) integer = "-" + integer;
+        
+    if (negative) integer = "-" + integer;
 }
 
 void Number::trim_right_zeroes(std::string &integer) noexcept {
@@ -39,9 +42,16 @@ void Number::trim_right_zeroes(std::string &integer) noexcept {
     if (negative)
         integer.erase(0,1);
     size_t trim_idx = integer.find_last_not_of('0');
-    if (trim_idx == std::string::npos)
+    if (trim_idx == std::string::npos) {
         integer = "0";
+        return;
+    }
     else
         integer = integer.substr(0,trim_idx+1);
-        if (negative) integer = "-" + integer;
+    if (negative) integer = "-" + integer;
+}
+
+std::pair<std::string, std::string> Number::split_decimal(const std::string &decimal) noexcept {
+    size_t point_idx = decimal.find('.');
+    return std::make_pair<std::string, std::string>(decimal.substr(0, point_idx), decimal.substr(point_idx+1));
 }

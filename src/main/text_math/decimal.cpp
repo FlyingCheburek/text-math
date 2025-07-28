@@ -73,15 +73,12 @@ inline void Decimal::to_decimal(std::string &integer){
 }
 
 void TextMath::Decimal::decimal_trim_zeroes(){
-    auto parts = split();
+    auto parts = split_decimal(content);
+    bool negative = parts.first.front() == '-';
+    if (negative) parts.first.erase(0,1);
     trim_left_zeroes(parts.first);
     trim_right_zeroes(parts.second);
-    content = parts.first + "." + parts.second;
-}
-
-std::pair<std::string, std::string> Decimal::split(){
-    size_t point_idx = content.find('.');
-    return std::make_pair<std::string, std::string>(content.substr(0, point_idx), content.substr(point_idx+1));
+    content = ((negative && (parts.first != "0" || parts.second != "0")) ? "-" : "") + parts.first + "." + parts.second;
 }
 
 void TextMath::Decimal::set_precision(const size_t precision){

@@ -63,6 +63,15 @@ Integer& Integer::operator=(const std::string &number){
     return *this;
 }
 
+bool TextMath::Integer::operator==(const Number &other) const noexcept {
+    return false;
+}
+
 inline void Integer::to_integer(std::string &decimal){
     decimal.erase(decimal.find('.'));
+}
+
+inline std::string Integer::to_integer_copy(std::string decimal){
+    decimal.erase(decimal.find('.'));
+    return decimal;
 }
