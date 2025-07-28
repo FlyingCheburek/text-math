@@ -16,14 +16,14 @@ namespace TextMath {
         std::string content;
         Type type = INVALID;
 
+        static void trim_left_zeroes(std::string& integer) noexcept;
+        static void trim_right_zeroes(std::string& integer) noexcept;
+
     public:
         std::string get() const noexcept;
         Type get_type() const noexcept; 
         static Type find_type(const std::string text) noexcept;
     };
-    
-    void trim_left_zeroes(std::string& integer) noexcept;
-    void trim_right_zeroes(std::string& integer) noexcept;
 }
 
 #endif
